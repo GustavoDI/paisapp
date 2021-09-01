@@ -3,12 +3,15 @@
         <h2>Busqueda</h2>
         <hr>
         <ul class="list-group">
-            <li class="list-group-item">Por País</li>
-            <li class="list-group-item">Por Región</li>
-            <li class="list-group-item">Por Capital</li>
+            <li routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{exact: true}" class="list-group-item">Por País</li>
+            <li routerLinkActive="active" routerLink="region" class="list-group-item">Por Región</li>
+            <li routerLinkActive="active" routerLink="capital" class="list-group-item">Por Capital</li>
         </ul>
     </div>
     <div class="col">
+        <!-- Router es un objeto de una ruta -->
+        <!-- outlet define la salida del objeto -->
         <router-outlet></router-outlet>
+        <hr>
     </div>
 </div>
