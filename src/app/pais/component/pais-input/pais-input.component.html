@@ -1,0 +1,9 @@
+
+<!-- Cuando el usuario hace el posteo del form o pulsa enter utilizamos submit -->
+<form (ngSubmit)="buscar()" autocomplete="off" action="">
+    <!--  el ng model usa el two databinding en termino debe estar definido por-pais.ts -->
+                <input type="text" name="termino"
+                       [(ngModel)]="termino" 
+                       class="form-control"
+                       placeholder="Buscar Pais"/>
+            </form>

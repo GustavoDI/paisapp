@@ -22,16 +22,13 @@ export class PorPaisComponent {
   buscar() {
     this.hayError = false;
     console.log(this.termino);
+
     this.paisService.buscarPais(this.termino)
       .subscribe((paises) => {
         console.log(paises);
         this.paises = paises;
       },(err)=>{
-        // console.log('Error');
-        // console.log(err);
         this.hayError = true;
-        // si hay un error va a colocar un arreglo vacio porque indicara que no son los
-        // paises que debe mostrar.
         this.paises = [];
       });
   }
