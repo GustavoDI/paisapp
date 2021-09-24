@@ -19,9 +19,9 @@ export class PorPaisComponent {
   constructor(private paisService: PaisService) { }
 
   // aqui es el consumo de nuestra peticion http.get que viene desde nuestro servicio
-  buscar() {
+  buscar(termino:string ) {
     this.hayError = false;
-    console.log(this.termino);
+    this.termino = termino;
 
     this.paisService.buscarPais(this.termino)
       .subscribe((paises) => {
