@@ -10,7 +10,7 @@ const routes: Routes = [
         // este es el primer componente que se mostrara cuando entremos a la app
         path: '',
         component: PorPaisComponent,
-        pathMatch: 'full'
+        pathMatch: 'full' //esto es para que de manera automatica caiga en esta ruta
     },
     {
         path:'region',
