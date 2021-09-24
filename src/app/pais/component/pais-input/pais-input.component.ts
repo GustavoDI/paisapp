@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-pais-input',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class PaisInputComponent implements OnInit {
+  @Output() 
+  onEnter: EventEmitter<string> = new EventEmitter();
+
   termino: string="";
 
   buscar(){
-    
+    // Cuando la persona presione enter realiza la llamada a el termino
+  this.onEnter.emit(this.termino);
   }
 
   constructor() { }
