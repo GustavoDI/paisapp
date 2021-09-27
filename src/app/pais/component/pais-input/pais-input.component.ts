@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -24,6 +24,12 @@ export class PaisInputComponent implements OnInit {
 
   @Output() onEnter: EventEmitter<string> = new EventEmitter();
   @Output() onDebounce: EventEmitter<string> = new EventEmitter();
+  // aqui vamos a recibir con un input = entrada del dato!
+  // crear esto nos crea una nueva propiedad que puedo para colocar el 
+  // placeholder ( esto se debe modificar en el pais-input.html donde
+  // indica que esta el placeholder)
+  @Input() placeholder: string = "";
+
 
   debouncer: Subject<string> = new Subject();
   termino: string="";
