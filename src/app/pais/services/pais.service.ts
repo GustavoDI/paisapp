@@ -9,7 +9,7 @@ import { Country } from '../interfaces/pais-interface';
 export class PaisService {
 
   private apiUrl: string = "http://api.countrylayer.com/v2";
-  private API_KEY: string = "?access_key=656b521b92d02d5944d87c2de895265f";
+  private API_KEY: string = "?access_key=d3a6fc85e8e54d3b2210e785c5646425";
   constructor(private http: HttpClient) { }
 
   // esta es la llamada de la petición
