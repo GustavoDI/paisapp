@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Country } from '../interfaces/pais-interface';
@@ -30,5 +30,12 @@ export class PaisService {
 
   }
 
+  buscarPorRegion(termino: string): Observable<Country[]>{
+
+    const httpParams = new HttpParams()
+    .set('fields','name,capital,alpha2code,flag,population')
+    const url = `${this.apiUrl}/region/${termino}${this.API_KEY}`;
+    return this.http.get<Country[]>(url, {params: httpParams});
+  }
 
 }
