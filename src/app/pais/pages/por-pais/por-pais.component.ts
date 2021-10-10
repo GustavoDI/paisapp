@@ -6,20 +6,26 @@ import { Country } from '../../interfaces/pais-interface';
   selector: 'app-por-pais',
   templateUrl: './por-pais.component.html',
   styles: [
+    `
+    li{
+      cursor: pointer;
+    }
+    `
   ]
 })
 export class PorPaisComponent {
 
-  termino : string = '';
+  termino: string = '';
   hayError: boolean = false;
-  paises  : Country[] = [];
+  paises: Country[] = [];
+  paisesSugeridos: Country[] = [];
 
   //  injectar la información de servicio pais nos permite utilizar
   // los servicios definidos en PaisService
   constructor(private paisService: PaisService) { }
 
   // aqui es el consumo de nuestra peticion http.get que viene desde nuestro servicio
-  buscar(termino:string ) {
+  buscar(termino: string) {
     this.hayError = false;
     this.termino = termino;
 
@@ -27,14 +33,21 @@ export class PorPaisComponent {
       .subscribe((paises) => {
         console.log(paises);
         this.paises = paises;
-      },(err)=>{
+      }, (err) => {
         this.hayError = true;
         this.paises = [];
       });
   }
 
-  sugerencias(termino: string){
-this.hayError = false;
+  // Las sugerencias las vamos a utilizar para mostrar las sugerencias 
+  sugerencias(termino: string) {
+    this.hayError = false;
+
+    this.paisService.buscarPais(termino)
+    .subscribe(paises => this.paisesSugeridos = paises.splice(0,5),
+    (err) => this.paisesSugeridos = []
+     );
+
 
   }
 }
